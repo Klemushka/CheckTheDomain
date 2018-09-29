@@ -13,6 +13,16 @@ for ($i = 0; $i < count($field1_array); $i++){
     }
 }
 
-echo $combination[0];
+// Method Request DNS
+function requestDNS($combination){
+    $requestDNSList = array();
+    for ($i = 0; $i < count($combination); $i++){
+        $result = dns_get_record($combination[$i]);
+        if (empty($result)){
+            array_push($requestDNSList, $combination[$i]);
+        } else {}
+    }
+    return $requestDNSList;
+}
 
 ?>
