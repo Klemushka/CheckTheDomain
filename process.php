@@ -1,4 +1,7 @@
 <?php
+require 'vendor/autoload.php';
+
+use GuzzleHttp\Client;
 
 $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
@@ -23,6 +26,18 @@ function requestDNS($combination){
         } else {}
     }
     return $requestDNSList;
+}
+
+function requestWhoIs($combination){
+    $requestWhoIsList = array();
+    for ($i = 0; $i < count($combination); $i++){
+        $client = new Client(['base_uri' => "http://api.whois.vu/?q=${combination[$i]}"]);
+        $response = json_decode($client->request('GET')->getBody());
+        if ($response->available == "yes") {
+            array_push($requestWhoIsList, $combination[$i]);
+        } else {}
+    }
+    return $requestWhoIsList;
 }
 
 ?>
