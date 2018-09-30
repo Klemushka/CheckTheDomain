@@ -6,6 +6,11 @@ use GuzzleHttp\Client;
 $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
 $combination = array();
+$requestDNSList = array();
+$requestWhoIsList = array();
+$requestGoDaddyList = array();
+$hello = "Hi";
+
 
 $field1_array = explode(" ", $field1);
 $field2_array = explode(" ", $field2);
@@ -15,6 +20,12 @@ for ($i = 0; $i < count($field1_array); $i++){
         array_push($combination, "${field1_array[$i]}${field2_array[$j]}.com");
     }
 }
+
+$requestDNSList = requestDNS($combination);
+$requestWhoIsList = requestWhoIs($combination);
+$requestGoDaddyList = requestGoDaddy($combination);
+
+require_once 'index.html';
 
 // Method Request DNS
 function requestDNS($combination){
@@ -56,10 +67,9 @@ function requestGoDaddy($combination)
             ])->getBody();
         $json_data = json_decode($response);
         if ($json_data->available == "1") {
-            $requestGoDaddy = $combination[$i];
+            array_push($requestGoDaddy, $combination[$i]);
         } else {}
     }
     return $requestGoDaddy;
 }
-
 ?>
