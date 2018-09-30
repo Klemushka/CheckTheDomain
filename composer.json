@@ -1,0 +1,13 @@
+{
+    "name": "klem/test-work",
+    "description": "Check the domain",
+    "authors": [
+        {
+            "name": "Klementev ILya",
+            "email": "ilyaklem65@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
