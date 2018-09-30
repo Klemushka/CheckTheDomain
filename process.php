@@ -28,6 +28,7 @@ function requestDNS($combination){
     return $requestDNSList;
 }
 
+// Method Request Whois
 function requestWhoIs($combination){
     $requestWhoIsList = array();
     for ($i = 0; $i < count($combination); $i++){
@@ -38,6 +39,27 @@ function requestWhoIs($combination){
         } else {}
     }
     return $requestWhoIsList;
+}
+
+// Method Request goDaddy
+function requestGoDaddy($combination)
+{
+    $requestGoDaddy = array();
+    for ($i = 0; $i < count($combination); $i++) {
+        $client = new Client(['base_uri' => 'https://api.ote-godaddy.com']);
+        $response = $client->get("/v1/domains/available?domain=${combination[$i]}",
+            [
+                'headers' => [
+                    'Authorization' => "sso-key 3mM44UYhwKCe9U_QQsRqkc39ePHorGbHYfv8c:QQsVgyXRfTAmvHcyPmjYU4",
+                    'Accept' => 'application/json'
+                ]
+            ])->getBody();
+        $json_data = json_decode($response);
+        if ($json_data->available == "1") {
+            $requestGoDaddy = $combination[$i];
+        } else {}
+    }
+    return $requestGoDaddy;
 }
 
 ?>
