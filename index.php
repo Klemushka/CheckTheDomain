@@ -41,17 +41,17 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <?php foreach ($requestDNSList as $domain_name) { ?>
+                    <?php foreach ($resp[0] as $domain_name) { ?>
                         <li class="list-group-item"> <h3> <?php echo $domain_name; ?> </h3> </li>
                     <?php } ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <?php foreach ($requestWhoIsList as $domain_name) { ?>
+                    <?php foreach ($resp[1] as $domain_name) { ?>
                         <li class="list-group-item"> <h3> <?php echo $domain_name; ?> </h3> </li>
                     <?php } ?>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <?php foreach ($requestGoDaddyList as $domain_name) { ?>
+                    <?php foreach ($resp[2] as $domain_name) { ?>
                         <li class="list-group-item"> <h3> <?php echo $domain_name; ?> </h3> </li>
                     <?php } ?>
                 </div>
