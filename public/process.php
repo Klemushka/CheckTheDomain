@@ -5,8 +5,8 @@ require __DIR__ . '/../vendor/autoload.php';
 $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
 
-$generator = new Generator;
-$domainChecker = new DomainChecker();
+$generator = new App\Generator;
+$domainChecker = new App\DomainChecker;
 
 $domainList = $generator->generateDomain($field1,$field2);
 if ($domainList != false){
