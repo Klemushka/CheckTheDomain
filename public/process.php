@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
@@ -13,7 +13,7 @@ if ($domainList != false){
     $resp = $domainChecker->check($domainList);
 }
 
-require_once 'index.php';
+require_once __DIR__ . '/index.php';
 
 
 
