@@ -1,10 +1,9 @@
 <?php
-namespace App;
+
 require 'vendor/autoload.php';
 
 $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
-
 
 $generator = new Generator;
 $domainChecker = new DomainChecker();
