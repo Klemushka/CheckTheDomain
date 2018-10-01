@@ -28,6 +28,7 @@
                     </form>
                 </div>
             </div>
+            <?php if (isset($resp) && $resp): ?>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">DNS</a>
@@ -56,6 +57,7 @@
                     <?php } ?>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
         <div class="col-md-3">
         </div>
